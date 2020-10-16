@@ -4,4 +4,3 @@
     <h1>Welcome to the Exercise App</h1>
   </div>
 </template>
-
