@@ -34,7 +34,7 @@
         <div class="field">
             <p class="control">
             <button class="button is-primary is-rounded">
-              Login
+              Register
             </button>
             </p>
         </div>
