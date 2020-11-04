@@ -1,5 +1,6 @@
 <template>  
   <div class = 'exercise'>
+    <form>
     <div class="field is-grouped is-grouped-centered">
      <label class="label mx-2 my-2">Workout Name</label>
        <div class="mx-2 pb-2">
@@ -21,32 +22,45 @@
       </div>
      </div>
 
-     <div class="field is-grouped is-grouped-centered">
+    <div class="field is-grouped is-grouped-centered">
       <label class="label mr-2 my-2">Sets</label>
        <div class="control">
          <div class="">
          <input class="input " type="text" placeholder="Sets">
          </div>
         </div>
-      </div>
+    </div>
+
+    <div class="field is-grouped is-grouped-centered">
+      <label class="label mx-2 my-2">Reps</label>
+       <div class="control">
+         <div class="">
+         <input class="input " type="text" placeholder="Reps">
+         </div>
+        </div>
+    </div>
 
       <div class="control pl-2">
         <button class="button is-primary is-rounded">Submit</button>
     </div>
     </div>
+  </form>
   </div>
 </template>
 
 <script>
 /*
-import Navbar from "@/components/Navbar.vue";
-export default {
-  name: "Navbar",
-  components: {
-    Navbar
+  class Exercise{
+    constructor(name,group,sets,reps){
+      this.name = name;
+      this.group = group;
+      this.sets = sets;
+      this.reps = reps
+    }
   }
-};
-*/
+  var group = {};
+  var input = 
+  */
 </script>
 
 <style scoped>
