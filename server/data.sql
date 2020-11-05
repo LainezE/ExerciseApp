@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: sql9.freemysqlhosting.net
--- Generation Time: Nov 04, 2020 at 11:01 PM
+-- Generation Time: Nov 05, 2020 at 02:16 AM
 -- Server version: 5.5.62-0ubuntu0.14.04.1
 -- PHP Version: 7.0.33-0ubuntu0.16.04.3
 
@@ -78,7 +78,8 @@ CREATE TABLE `Users` (
   `Email` varchar(45) DEFAULT NULL,
   `Password` varchar(45) DEFAULT NULL,
   `Nickname` varchar(45) DEFAULT NULL,
-  `Follower_Count` int(11) DEFAULT NULL
+  `Follower_Count` int(11) DEFAULT NULL,
+  `Status` enum('A','U') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
