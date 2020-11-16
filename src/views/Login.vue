@@ -8,7 +8,7 @@
     <div class="column is-half is-offset-one-quarter">
       <div class="field">
         <p class="control has-icons-left has-icons-right">
-          <input class="input" type="email" placeholder="Email" />
+          <input v-model="email" class="input" type="email" placeholder="Email" />
           <span class="icon is-small is-left">
             <i class="fa fa-envelope"></i>
           </span>
@@ -19,7 +19,7 @@
       </div>
       <div class="field">
         <p class="control has-icons-left">
-          <input class="input" type="password" placeholder="Password" />
+          <input v-model="password" class="input" type="password" placeholder="Password" />
           <span class="icon is-small is-left">
             <i class="fa fa-lock"></i>
           </span>
@@ -37,13 +37,24 @@
 </template>
 
 <script>
-/*
-import Login from "@/components/Login.vue";
-export default {
-  name: "Login",
-  components: 
+import * as api from "@/controller/api";
 
+export default {
+  data(){
+    return {
+    password : '',
+    email : ''
+    }
+  },
+  methods: {
+    loginSubmit: function () {
+      if(api.login(this.email, this.password)){
+        alert('logged in');
+      }
+      else{
+        alert('user not found');
+      }
+    }
   }
-};
-*/
+}
 </script>
