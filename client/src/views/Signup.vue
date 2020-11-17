@@ -1,5 +1,6 @@
 <template>
     <div class='signup'>
+        <form>
         <div class='field is-grouped is-grouped-centered'>
             <label class="label mx-2 my-2">Email</label>
             <div class='control'>
@@ -38,5 +39,6 @@
             </button>
             </p>
         </div>
+        </form>
     </div>
 </template>
