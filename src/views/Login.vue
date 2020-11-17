@@ -5,7 +5,6 @@
         Login
       </strong>
       </h1>
-      <form>
     <div class="column is-half is-offset-one-quarter">
       <div class="field">
         <p class="control has-icons-left has-icons-right">
@@ -34,7 +33,6 @@
         </p>
       </div>
     </div>
-    </form>
   </div>
 </template>
 

@@ -25,7 +25,7 @@ const routes = [
     name: "Exercise",
     
     component: () =>
-      import(/* webpackChunkName: "exercise" */ "../views/Exercise.vue")
+      import("../views/Exercise.vue")
   },
   
   {
@@ -33,7 +33,7 @@ const routes = [
     name: "Login",
     
     component: () =>
-      import(/* webpackChunkName: "login" */  "../views/Login.vue")
+      import("../views/Login.vue")
   },
   
   {
@@ -41,7 +41,7 @@ const routes = [
     name: "Signup",
     
     component: () =>
-      import(/* webpackChunkName: "signup" */  "../views/Signup.vue")
+      import("../views/Signup.vue")
   }
   
 ];
