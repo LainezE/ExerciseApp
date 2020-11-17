@@ -4,36 +4,29 @@ const db = require('.model');
 const { create } = require('core-js/fn/object');
 
 
-app.get('getusers', function(request, response){//this is your first request
-    let myquery = "SELECT * FROM `EX_Fall_2020_Users`";// you would replace this with q
-    db.conn.query(myquery, function (error, results, fields) { // you make your query here
+app.get('getusers', function(request, response){
+    let myquery = "SELECT * FROM `EX_Fall_2020_Users`";
+    db.conn.query(myquery, function (error, results, fields) {
         if (error) console.log(error);
-        console.log(results);  //results come back as results
-                               // error comes back as errors
-                                //fields I have no idea. you dont need
+        console.log(results);  
         return results
       });
 })
 
-app.get('getworkouts', function(request, response){//this is your first request
-    let myquery = "SELECT * FROM `EX_Fall_2020_Workouts`";// you would replace this with q
-    db.conn.query(myquery, function (error, results, fields) { // you make your query here
+app.get('getworkouts', function(request, response){
+    let myquery = "SELECT * FROM `EX_Fall_2020_Workouts`";
+    db.conn.query(myquery, function (error, results, fields) { 
         if (error) console.log(error);
-        console.log(results);  //results come back as results
-                               // error comes back as errors
-                                //fields I have no idea. you dont need
+        console.log(results);  
         return results
       });
 })
 
-app.get('getfollowers', function(request, response){//this is your first request
-    let myquery = "SELECT * FROM `EX_Fall_2020_Followers`";// you would replace this with q
-    db.conn.query(myquery, function (error, results, fields) { // you make your query here
+app.get('getfollowers', function(request, response){
+    let myquery = "SELECT * FROM `EX_Fall_2020_Followers`";
+    db.conn.query(myquery, function (error, results, fields) { 
         if (error) console.log(error);
-        console.log(results);  //results come back as results
-                               // error comes back as errors
-                                //fields I have no idea. you dont need
-        return results
+        console.log(results); 
       });
 })
 
@@ -45,9 +38,9 @@ app.get('adduser', function(request, response){
     let password = request.get('password');
     let userType = request.get('User_Type');
     let myquery = 'INSERT INTO EX_Fall_2020_Users (id, FirstName, LastName, DOB, Password, User_Type) VALUES(' + userID + ', ' + firstName + ', ' +
-        lastName + ', ' + dob + ', ' + password + ', ' + userType + ')'; //inserts a row into specified table
+        lastName + ', ' + dob + ', ' + password + ', ' + userType + ')'; 
     console.log(myquery);
-    db.conn.query(myquery, function (error, results, fields) {  //you make your query here
+    db.conn.query(myquery, function (error, results, fields) {  
         if(error){
             console.log(error);
         }
@@ -67,7 +60,7 @@ app.get('addworkout', function(request, response){
     let weight = request.get('Weight');
     let myquery = 'INSERT INTO EX_Fall_2020_Workouts (id, created_at, Owner_id, Start_Time, End_Time, Exercise_Type, Sets, Reps_Per_Set, Weight) VALUES(' + id + ', ' + createdat + ', ' 
         + ownerId + ', ' + startTime + ', ' + endTime + ', ' + exerciseType + ', ' + sets + ', ' + reps + ', ' + weight + ')';
-    db.conn.query(myquery, function (error, results, fields) {  //you make your query here
+    db.conn.query(myquery, function (error, results, fields) {  
         if(error){
             console.log(error);
         }
@@ -83,7 +76,7 @@ app.get('addfollowers', function(request, response){
     let isAccepted = request.get('isAccepted');
     let myquery = 'INSERT INTO EX_Fall_2020_Followers (id, created_at, Following_id, Follower_id, isAccepted) VALUES(' + id + ', ' + createdat + ', ' 
         + followingId + ',' + followerId + ',' + isAccepted + ')';
-    db.conn.query(myquery, function (error, results, fields) {  //you make your query here
+    db.conn.query(myquery, function (error, results, fields) { 
         if(error){
             console.log(error);
         }
