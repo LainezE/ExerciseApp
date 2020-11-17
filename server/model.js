@@ -6,12 +6,8 @@ const mysql = require("mysql");
       database: "sql9374344",
     });
     conn.connect();
-    let myquery = "SELECT * FROM `EX_Fall_2020_Users`"; //you would replace this with q
-    conn.query(myquery, function (error, results, fields) {  //you make your query here
-        //if (error) throw error;
-        //console.log(fields); 
-        console.log(results);  //results come back as results
-                                //error comes back as errors
-                                //fields I have no idea. you dont need
+    let myquery = "SELECT * FROM `EX_Fall_2020_Users`"; 
+    conn.query(myquery, function (error, results, fields) {  
+        console.log(results);  
         return results
       });
