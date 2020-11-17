@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" >
+      <a class="navbar-item">
         <img src="../assets/weight.png" width="80" height="28" />
       </a>
 
@@ -22,19 +22,19 @@
       <div class="navbar-start">
         <a class="navbar-item">
           <button class="button is-rounded">
-          <router-link to="/">Home</router-link>
+            <router-link to="/">Home</router-link>
           </button>
         </a>
 
         <a class="navbar-item">
           <button class="button is-rounded">
-          <router-link to="/about">About</router-link>
+            <router-link to="/about">About</router-link>
           </button>
         </a>
 
-        <a class = "navbar-item">
+        <a class="navbar-item">
           <button class="button is-rounded">
-          <router-link to="/exercise">Exercise</router-link>
+            <router-link to="/exercise">Exercise</router-link>
           </button>
         </a>
       </div>
@@ -44,12 +44,12 @@
           <div class="buttons">
             <a class="button is-primary">
               <strong>
-                <router-link to='/Signup'>Signup</router-link>
+                <router-link to="/Signup">Signup</router-link>
               </strong>
             </a>
             <a class="button is-light">
               <strong>
-              <router-link to="/Login">Log in</router-link>
+                <router-link to="/Login">Log in</router-link>
               </strong>
             </a>
           </div>

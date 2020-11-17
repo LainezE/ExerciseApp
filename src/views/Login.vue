@@ -4,11 +4,16 @@
       <strong>
         Login
       </strong>
-      </h1>
+    </h1>
     <div class="column is-half is-offset-one-quarter">
       <div class="field">
         <p class="control has-icons-left has-icons-right">
-          <input v-model="email" class="input" type="email" placeholder="Email" />
+          <input
+            v-model="email"
+            class="input"
+            type="email"
+            placeholder="Email"
+          />
           <span class="icon is-small is-left">
             <i class="fa fa-envelope"></i>
           </span>
@@ -19,7 +24,12 @@
       </div>
       <div class="field">
         <p class="control has-icons-left">
-          <input v-model="password" class="input" type="password" placeholder="Password" />
+          <input
+            v-model="password"
+            class="input"
+            type="password"
+            placeholder="Password"
+          />
           <span class="icon is-small is-left">
             <i class="fa fa-lock"></i>
           </span>
@@ -40,21 +50,20 @@
 import * as api from "@/controller/api";
 
 export default {
-  data(){
+  data() {
     return {
-    password : '',
-    email : ''
-    }
+      password: "",
+      email: ""
+    };
   },
   methods: {
-    loginSubmit: function () {
-      if(api.login(this.email, this.password)){
-        alert('logged in');
-      }
-      else{
-        alert('user not found');
+    loginSubmit: function() {
+      if (api.login(this.email, this.password)) {
+        alert("logged in");
+      } else {
+        alert("user not found");
       }
     }
   }
-}
+};
 </script>
