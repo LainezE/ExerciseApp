@@ -1,5 +1,6 @@
 <template>
   <div class="exercise">
+    <div class="columns is-multiline is-mobile">
     <div class="field is-grouped is-grouped-centered">
       <label class="label mx-2 my-2">Workout Name</label>
       <div class="mx-2 pb-2">

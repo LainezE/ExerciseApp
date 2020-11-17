@@ -15,5 +15,3 @@ const mysql = require("mysql");
                                 //fields I have no idea. you dont need
         return results
       });
-//this creates the database connection
-//you would error check this connection to see if it fails but thats for another time :)
