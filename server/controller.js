@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express.Router();
-const db = require('./model');
+const db = require('./model.js');
 
 app.get('/getusers', function(request, response){
     let myquery = "SELECT * FROM `EX_Fall_2020_Users`";
@@ -28,17 +28,25 @@ app.get('/getfollowers', function(request, response){
       });
 })
 
-app.get('/adduser', function(request, response){ 
+app.post('/signup', function(request, response){ 
+    console.log(" controller.js app.post");
     let userID = request.get('id');
+    console.log(userID);
     let firstName = request.get('FirstName');
+    console.log(firstName);
     let lastName = request.get('LastName');
+    console.log(lastName);
     let password = request.get('password');
+    console.log(password);
     let userType = 'user';
+    console.log(userType);
     let email = request.get('Email');
+    console.log(email);
+    console.log("-------------------")
     let myquery = 'INSERT INTO EX_Fall_2020_Users (id, FirstName, LastName, DOB, Password, User_Type) VALUES(' + userID + ', ' + firstName + ', ' +
         lastName + ', ' + password + ', ' + userType + ')'; 
     console.log(myquery);
-    db.conn.query(myquery, function (error, results, fields) {  
+    db.conn.queryDatabase(myquery, function (error, results, fields) {  
         if(error){
             console.log(error);
         }
@@ -87,23 +95,6 @@ app.get('/login', function(request, response){
     let password = request.get('password');
     let myquery = "SELECT * FROM `EX_Fall_2020_Users` WHERE email = '" + email + "' AND password = '" + password + "'";
     let result = db.queryDatabase(myQuery).then(function(dbResult){
-        if(dbResult.length > 0){
-          console.log(dbResult)
-          response.send(true);
-        }
-        else{
-          response.send(false);
-        }      
-      });
-})
-
-app.get('/signup', function(request, response){
-    let firsName = request.get('firstName');
-    let lastName = request.get('lastName'); 
-    let email = request.get('email');
-    let password = request.get('password');
-    let myquery = "SELECT * FROM `EX_Fall_2020_Users` WHERE email = " + email + " AND password = " + password;
-    let result = db.queryDatabase(buildQuery).then(function(dbResult){
         if(dbResult.length > 0){
           console.log(dbResult)
           response.send(true);

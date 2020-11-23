@@ -11,9 +11,19 @@ export function login(email, password) {
 
 export function signup(firstName, lastName, email, password) {
   try {
+    
+    console.log("api.js signup function")
+    console.log(this.firstName);
+    console.log(this.lastName);
+    console.log(this.email);
+    console.log(this.password);
+    console.log("-----------------------");
     return axios.post(backend_url + "/signup", {
       headers: { 'firstName': firstName, 'lastName': lastName, 'email': email, 'password': password }
     })
+      .then(function (response) {
+        console.log(response.data);
+      });
   } catch (error) {
     console.log(error);
   }
