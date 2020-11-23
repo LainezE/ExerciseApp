@@ -4,7 +4,7 @@ const app = express();
 const controller = require('./controller');
 
 
-const port = 3003;
+const port = 3000;
 const server = "localhost"; 
 
 app.use(function(req, res, next) {
@@ -15,7 +15,7 @@ app.use(function(req, res, next) {
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use("/", express.static(__dirname));
+app.use("/", express.static("/../src/"));
 app.use('/', controller);
 
 app.listen(port);

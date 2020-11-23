@@ -30,6 +30,15 @@
         </div>
       </div>
 
+      <div class="field is-grouped is-grouped-centered">
+        <label class="label mx-2 my-2">Reps</label>
+        <div class="control">
+          <div class="">
+            <input class="input" type="text" placeholder="Sets" />
+          </div>
+        </div>
+      </div>
+
       <div class="control pl-2">
         <button class="button is-primary is-rounded">Submit</button>
       </div>
@@ -41,15 +50,25 @@
 </template>
 
 <script>
-/*
-import Navbar from "@/components/Navbar.vue";
+import * as api from "@/controller/api";
+
 export default {
-  name: "Navbar",
-  components: {
-    Navbar
+  data() {
+    return {
+      firstName: "",
+      lastName: "",
+      password: "",
+      email: ""
+    };
+  },
+  methods: {
+    signupSubmit: function() {
+      if (api.login(this.firstName, this.lastName, this.email, this.password)) {
+        alert("Registration Complete");
+      } else {
+        alert("Registration Failed");
+      }
+    }
   }
 };
-*/
 </script>
-
-<style scoped></style>

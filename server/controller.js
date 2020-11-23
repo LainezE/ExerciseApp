@@ -1,10 +1,8 @@
 const express = require('express');
 const app = express.Router();
-const db = require('.model');
-const { create } = require('core-js/fn/object');
+const db = require('./model');
 
-
-app.get('getusers', function(request, response){
+app.get('/getusers', function(request, response){
     let myquery = "SELECT * FROM `EX_Fall_2020_Users`";
     db.conn.query(myquery, function (error, results, fields) {
         if (error) console.log(error);
@@ -13,7 +11,7 @@ app.get('getusers', function(request, response){
       });
 })
 
-app.get('getworkouts', function(request, response){
+app.get('/getworkouts', function(request, response){
     let myquery = "SELECT * FROM `EX_Fall_2020_Workouts`";
     db.conn.query(myquery, function (error, results, fields) { 
         if (error) console.log(error);
@@ -22,7 +20,7 @@ app.get('getworkouts', function(request, response){
       });
 })
 
-app.get('getfollowers', function(request, response){
+app.get('/getfollowers', function(request, response){
     let myquery = "SELECT * FROM `EX_Fall_2020_Followers`";
     db.conn.query(myquery, function (error, results, fields) { 
         if (error) console.log(error);
@@ -30,15 +28,15 @@ app.get('getfollowers', function(request, response){
       });
 })
 
-app.get('adduser', function(request, response){ 
+app.get('/adduser', function(request, response){ 
     let userID = request.get('id');
     let firstName = request.get('FirstName');
     let lastName = request.get('LastName');
-    let dob = request.get('DOB');
     let password = request.get('password');
-    let userType = request.get('User_Type');
+    let userType = 'user';
+    let email = request.get('Email');
     let myquery = 'INSERT INTO EX_Fall_2020_Users (id, FirstName, LastName, DOB, Password, User_Type) VALUES(' + userID + ', ' + firstName + ', ' +
-        lastName + ', ' + dob + ', ' + password + ', ' + userType + ')'; 
+        lastName + ', ' + password + ', ' + userType + ')'; 
     console.log(myquery);
     db.conn.query(myquery, function (error, results, fields) {  
         if(error){
@@ -48,7 +46,7 @@ app.get('adduser', function(request, response){
       });
 })
 
-app.get('addworkout', function(request, response){ 
+app.get('/addworkout', function(request, response){ 
     let id = request.get('id');
     let createdat = request.get('created_at');
     let ownerId = request.get('Owner_id');
@@ -68,7 +66,7 @@ app.get('addworkout', function(request, response){
       });
 })
 
-app.get('addfollowers', function(request, response){ 
+app.get('/addfollowers', function(request, response){ 
     let id = request.get('id');
     let createdat = request.get('created_at');
     let followingId = request.get('Following_id');
@@ -81,6 +79,38 @@ app.get('addfollowers', function(request, response){
             console.log(error);
         }
         return results
+      });
+})
+
+app.get('/login', function(request, response){
+    let email = request.get('email');
+    let password = request.get('password');
+    let myquery = "SELECT * FROM `EX_Fall_2020_Users` WHERE email = '" + email + "' AND password = '" + password + "'";
+    let result = db.queryDatabase(myQuery).then(function(dbResult){
+        if(dbResult.length > 0){
+          console.log(dbResult)
+          response.send(true);
+        }
+        else{
+          response.send(false);
+        }      
+      });
+})
+
+app.get('/signup', function(request, response){
+    let firsName = request.get('firstName');
+    let lastName = request.get('lastName'); 
+    let email = request.get('email');
+    let password = request.get('password');
+    let myquery = "SELECT * FROM `EX_Fall_2020_Users` WHERE email = " + email + " AND password = " + password;
+    let result = db.queryDatabase(buildQuery).then(function(dbResult){
+        if(dbResult.length > 0){
+          console.log(dbResult)
+          response.send(true);
+        }
+        else{
+          response.send(false);
+        }      
       });
 })
 

@@ -25,7 +25,6 @@ CREATE DATABASE IF NOT EXISTS `sql9374344` DEFAULT CHARACTER SET latin1 COLLATE 
 USE `sql9374344`;
 
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `Exercises`
 --

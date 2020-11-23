@@ -37,7 +37,7 @@
       </div>
       <div class="field">
         <p class="control">
-          <button class="button is-primary is-rounded">
+          <button @click="loginSubmit" class="button is-primary is-rounded is-success">
             Login
           </button>
         </p>
