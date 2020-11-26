@@ -55,17 +55,13 @@ app.post('/signup', function(request, response){
 })
 
 app.get('/addworkout', function(request, response){ 
-    let id = request.get('id');
-    let createdat = request.get('created_at');
-    let ownerId = request.get('Owner_id');
-    let startTime = request.get('Start_Time');
-    let endTime = request.get('End_Time');
+    let Ownerid = request.get('Ownerid');
     let exerciseType = request.get('Exercise_Type');
     let sets = request.get('Sets');
     let reps = request.get('Reps_Per_Set');
     let weight = request.get('Weight');
-    let myquery = 'INSERT INTO EX_Fall_2020_Workouts (id, created_at, Owner_id, Start_Time, End_Time, Exercise_Type, Sets, Reps_Per_Set, Weight) VALUES(' + id + ', ' + createdat + ', ' 
-        + ownerId + ', ' + startTime + ', ' + endTime + ', ' + exerciseType + ', ' + sets + ', ' + reps + ', ' + weight + ')';
+    let myquery = 'INSERT INTO EX_Fall_2020_Workouts (id, Owner_id, Exercise_Type, Sets, Reps_Per_Set, Weight) VALUES(' + Ownerid + ', ' 
+        + exerciseType + ', ' + sets + ', ' + reps + ', ' + weight + ')';
     db.conn.query(myquery, function (error, results, fields) {  
         if(error){
             console.log(error);

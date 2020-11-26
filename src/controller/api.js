@@ -11,13 +11,6 @@ export function login(email, password) {
 
 export function signup(firstName, lastName, email, password) {
   try {
-    
-    console.log("api.js signup function")
-    console.log(this.firstName);
-    console.log(this.lastName);
-    console.log(this.email);
-    console.log(this.password);
-    console.log("-----------------------");
     return axios.post(backend_url + "/signup", {
       headers: { 'firstName': firstName, 'lastName': lastName, 'email': email, 'password': password }
     })
@@ -27,4 +20,21 @@ export function signup(firstName, lastName, email, password) {
   } catch (error) {
     console.log(error);
   }
+}
+
+export function addWorkout(Ownerid, exerciseType, sets, reps, weight){
+  try {
+    return axios.post(backend_url + "/addWorkout", {
+      headers: { 'Ownerid': Ownerid, 'exerciseType': exerciseType, 'sets': sets, 'reps': reps, 'weight': weight }
+    })
+      .then(function (response) {
+        console.log(response.data);
+      });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export function getWorkout(){
+  return axios.get(backend_url + "/getWorkout");
 }
