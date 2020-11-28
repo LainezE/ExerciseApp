@@ -11,7 +11,7 @@ app.get('/getusers', function(request, response){
       });
 })
 
-app.get('/getworkouts', function(request, response){
+app.get('/getworkout', function(request, response){
     let myquery = "SELECT * FROM `EX_Fall_2020_Workouts`";
     db.conn.query(myquery, function (error, results, fields) { 
         if (error) console.log(error);
