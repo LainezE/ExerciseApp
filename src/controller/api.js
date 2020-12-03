@@ -38,3 +38,20 @@ export function addWorkout(Ownerid, exerciseType, sets, reps, weight){
 export function getWorkout(){
   return axios.get(backend_url + "/getWorkout");
 }
+
+export function getUsers(firstName, lastName, email, password) {
+  try {
+    return axios.post(backend_url + "/getusers", {
+      headers: { 'firstName': firstName, 'lastName': lastName, 'email': email, 'password': password }
+    })
+      .then(function (response) {
+        console.log(response.data);
+      });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export function getUsers1() {
+   axios.get(backend_url + "/getusers1");
+}

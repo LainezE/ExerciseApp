@@ -11,6 +11,15 @@ app.get('/getusers', function(request, response){
       });
 })
 
+app.get('/getusers1', function(request, response){
+    let myquery = "SELECT Nickname FROM `EX_Fall_2020_Users`";
+    db.conn.query(myquery, function (error, results, fields) {
+        if (error) console.log(error);
+        console.log(results);  
+        return results
+      });
+})
+
 app.get('/getworkout', function(request, response){
     let myquery = "SELECT * FROM `EX_Fall_2020_Workouts`";
     db.conn.query(myquery, function (error, results, fields) { 

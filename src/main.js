@@ -4,6 +4,10 @@ import router from "./router";
 import store from "./store";
 import "./../node_modules/bulma/css/bulma.css";
 import "./../node_modules/font-awesome/css/font-awesome.css";
+import Buefy from 'buefy';
+import 'buefy/dist/buefy.css';
+
+Vue.use(Buefy)
 Vue.config.productionTip = false;
 
 new Vue({
